@@ -1,0 +1,58 @@
+/* colors */
+
+:root {
+    --primary: #80cbc4;
+    --secondary: #00695c;
+    --title: #e0f2f1;
+  }
+  
+  /* layout styles */
+  nav {
+    background: var(--primary);
+    border-bottom: 10px solid var(--secondary);
+  }
+  nav a {
+    text-transform: uppercase;
+    color: var(--title);
+  }
+  nav a span {
+    font-weight: bold;
+  }
+  nav .sidenav-trigger {
+    margin: 0;
+  }
+  
+  .circle-list {
+    list-style-type: circle;
+  } 
+  /* review styles */
+  .review {
+    margin-top: 20px;
+  }
+
+  .review-details {
+    grid-area: details;
+    margin-top: 6px;
+  }
+  .review-delete {
+    grid-area: delete;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  /* form-styles */
+  .add-btn {
+    background: var(--title) !important;
+  }
+  input {
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  }
+  .side-form button {
+    background: var(--title);
+    box-shadow: 1px 1px 3px rgba(90, 90, 90, 0.2);
+  }
+  form .input-field {
+    margin-top: 30px;
+  }

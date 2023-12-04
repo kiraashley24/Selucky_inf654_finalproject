@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homegrown Recipes</title>
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <!--Add links-->
+    <link rel="stylesheet" href="/css/app.css">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+</head>
+
+<body class="teal lighten-5">
+    <nav class="nav-wrapper">
+        <div class="container">
+            <a href="/index.html" class="brand-logo">Homegrown <span>Recipes</span></a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                <i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/pages/breakfast.html">Breakfast</a></li>
+                <li><a href="/pages/dinner.html">Dinner</a></li>
+                <li><a href="/pages/dessert.html">Dessert</a></li>
+                <li><a href="/pages/reviews.html">Reviews</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <ul class="sidenav" id="mobile-links">
+        <li><a class="subheader">HOMEGROWN RECIPES</a></li>
+        <li><a href="/index.html">Home<i class="material-icons">home</i></a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="/pages/breakfast.html">Breakfast<i class="material-icons">local_cafe</i></a></li>
+        <li><a href="/pages/dinner.html">Dinner<i class="material-icons">local_dining</i></a></li>
+        <li><a href="/pages/dessert.html">Dessert<i class="material-icons">cake</i></a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="/pages/reviews.html">Reviews<i class="material-icons">chat_bubble</i></a></li>
+    </ul>
+    
+    <h2 class="center-align blue-grey-text text-darken-3">Reviews</h2>
+       
+        <div class="container">
+            <div class="row">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                      <i class="material-icons circle green">person</i>
+                      <span class="title">Delicious!</span>
+                      <p><br>I had never tried Schnitzel before, but my friends recommended this recipe to me! It's a new staple in our house!</p>
+                      <a href="#!" class="secondary-content"><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle yellow">person</i>
+                        <span class="title">To die for!!</span>
+                        <p><br>If you want a simple, but easy breakfast, try the crepes! You can be creative with it too!</p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle blue">person</i>
+                        <span class="title">SO much yum [:</span>
+                        <p><br>I have tried many of these recipes and love them. I just wish there were more vegetarian options!</p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle orange">person</i>
+                        <span class="title">More alternatives please</span>
+                        <p><br>Yummy, but recipes lack alternatives for allergies and such!</p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle purple">person</i>
+                        <span class="title">Patiently waiting for more!</span>
+                        <p><br>I've already made all of these recipes on repeat. I'm excited for more recipes to be posted!</p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i></a>
+                      </li>
+                  </ul>
+            </div>
+            <!--Can do btn disabled to not allow to press button until form is filled out-->
+            <div class="center">
+                <a class="btn-floating btn-small teal sidenav-trigger" data-target="side-form">
+                    <i class="material-icons">add</i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="side-form" class="sidenav side-form">
+        <form class="add-review container section">
+            <h6 class="center-align blue-grey-text text-darken-3">Review</h6>
+            <div class="divider"></div>
+            <div class="input-field">
+                <input placeholder="Enter review title" id="title" class="validate" type="text">
+                 <label for="title">Review Title</label>
+            </div>
+            <div class="input-field">
+                <input placeholder="Enter review description" id="description" class="validate" type="text">
+                <label for="title">Review Description</label>
+            </div>
+
+            <div class="input-field center">
+                <button class="btn-small">Add</button>
+            </div>
+    </div>
+    </form>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="/js/ui.js"></script>
+    <script src="/js/app.js"></script>
+</body>
