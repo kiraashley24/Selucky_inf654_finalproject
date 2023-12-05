@@ -1,5 +1,5 @@
-const staticCache = 'Static-cache-v1';
-const dynamicCache = 'Dynamic-cache-v1';
+const staticCache = 'Static-cache-v34';
+const dynamicCache = 'Dynamic-cache-v34';
 
 const assets = [
     "/",
@@ -8,6 +8,7 @@ const assets = [
     '/pages/dessert.html',
     '/pages/dinner.html',
     '/pages.reviews.html',
+    '/pages/fallback.html',
     "/js/app.js",
     "/js/ui.js",
     "/js/materialize.min.js",
@@ -26,6 +27,17 @@ const assets = [
     "https://fonts.googleapis.com/icon?family=Material+Icons",
   ];
   
+  //Cache size limit
+  const limitCacheSize = (name, size) => {
+    caches.open(name).then((cache) => {
+      cache.keys().then((keys) => {
+        if (keys.length > size) {
+          cache.delete(keys[0]).then(limitCacheSize(name, size));
+        }
+      });
+    });
+  };
+
   self.addEventListener("install", function (event) {
     //fires when the browser install the app
     //here we're just logging the event and the contents of the object passed to the event.
@@ -49,7 +61,7 @@ const assets = [
       caches.keys().then((keys) => {
         return Promise.all(
           keys
-            .filter((key) => key !== staticCache)
+            .filter((key) => key !== staticCache && key !== dynamicCache)
             .map((key) => caches.delete(key))
         );
       })
@@ -60,20 +72,23 @@ const assets = [
     //fires whenever the app requests a resource (file or data)
     // console.log(`SW: Fetching ${event.request.url}`);
     //next, go get the requested resource from the network
-    event.respondWith(
-      caches
-        .match(event.request)
-        .then((response) => {
-          return (
-            response ||
-            fetch(event.request).then((fetchRes) => {
-              return caches.open(dynamicCache).then((cache) => {
-                cache.put(event.request.url, fetchRes.clone());
-                return fetchRes;
-              });
-            })
-          );
-        })
-        .catch(() => caches.match("/pages/fallback.html"))
-    );
+    if(event.request.url.indexOf("firestore.googleapis.com") === -1) {
+      event.respondWith(
+        caches
+          .match(event.request)
+          .then((response) => {
+            return (
+              response ||
+              fetch(event.request).then((fetchRes) => {
+                return caches.open(dynamicCache).then((cache) => {
+                  cache.put(event.request.url, fetchRes.clone());
+                  limitCacheSize(dynamicCache, 15);
+                  return fetchRes;
+                });
+              })
+            );
+          })
+          .catch(() => caches.match("/pages/fallback.html"))
+      );
+    }
   });
