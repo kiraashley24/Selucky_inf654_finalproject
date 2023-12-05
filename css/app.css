@@ -25,6 +25,9 @@ nav .sidenav-trigger {
 .circle-list {
   list-style-type: circle;
 } 
+.yellow-button {
+  background-color: yellow;
+}
 
 /* review styles */
 .review {

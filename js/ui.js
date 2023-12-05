@@ -83,3 +83,15 @@ const renderReview = (data, id) => {
     // console.log(review);
     review.remove();
   };
+
+  const subscribeButton = document.querySelector("#subscribe-button");
+
+  subscribeButton.addEventListener("click", () => {
+    Notification.requestPermission().then(perm => {
+        if (perm === "granted") {
+            new Notification("You will now receive notifications about new recipes", {
+                body: "Thank you for subscribing!",
+            })
+        }
+    })
+  })

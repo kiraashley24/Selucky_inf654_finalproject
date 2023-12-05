@@ -21,6 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+
 //listen for auth status changes
 onAuthStateChanged(auth, (user) => {
 // Check for user status
