@@ -10,6 +10,7 @@ import {
   enableIndexedDbPersistence,
  } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+ //import { getMessaging, getToken } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,7 +25,17 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+//const messaging = getMessaging(app);
+//getToken(messaging, {vapidKey: "BDexwMDDoXIZvy7mFTjz84Wc_IRB64GH1ptheuBxrCXjadfGhRQJP-8mxE7iFvwahT403FI7LySfeL7AhW8OjvQ"});
 
+/*function requestPermission() {
+  console.log('Requesting permission...');
+  Notification.requestPermission().then((permission) => {
+    if (permission === 'granted') {
+      console.log('Notification permission granted.');
+    }
+  })
+}*/
 async function getReviews(db) {
   const reviewsCol = collection(db, "reviews");
   const reviewSnapshot = await getDocs(reviewsCol);

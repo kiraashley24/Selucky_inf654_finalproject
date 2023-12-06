@@ -91,6 +91,7 @@ const renderReview = (data, id) => {
         if (perm === "granted") {
             new Notification("You will now receive notifications about new recipes", {
                 body: "Thank you for subscribing!",
+                image: "img\icons\hg-48x48.png",
             })
         }
     })

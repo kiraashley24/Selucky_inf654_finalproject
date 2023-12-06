@@ -4,8 +4,9 @@ import {
     createUserWithEmailAndPassword, 
     signOut, 
     signInWithEmailAndPassword, 
-    onAuthStateChanged,
+    onAuthStateChanged, 
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -31,6 +32,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is logged in
         console.log("User logged in: ", user.email);
+
         // Show the reviews container
         reviewsContainer.style.display = "block";
         getReviews(db).then((snapshot) => {
